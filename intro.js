@@ -1,7 +1,7 @@
 (function () {
     window.addEventListener("load", init);
 
-    const INTRO_URL = "https://zhiweilla.github.io/intro.php?lang=";
+    const INTRO_URL = "intros/";
 
     function init() {
         id("second").addEventListener("click", loadText);
@@ -11,28 +11,20 @@
     function loadText() {
         let l = id("lang");
         let lang = l.options[l.selectedIndex].value;
-        fetch(INTRO_URL + lang)
-        .then(checkStatus)
-        .then(populateDiv)
-        .catch(console.error)
-    }
-
-    function populateDiv(data) {
         id("warning").classList.add("hidden");
         let board = id("main");
         let textArea = document.createElement("div");
         textArea.id = "content";
         let text = document.createElement("article");
-        let texts = data.split("\n");
-        for(let line of texts) {
-            let br = document.createElement("br");
-            let textNode = document.createTextNode(line);
-            text.appendChild(textNode);
-            text.appendChild(br);
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            text.innerText = reader.result;
         }
+        reader.readAsText(INTRO_URL + lang + ".txt");
         textArea.appendChild(text);
         board.appendChild(textArea);
     }
+
 
     /**
      *  checks if the response is OK
