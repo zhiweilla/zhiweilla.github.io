@@ -1,7 +1,7 @@
 (function () {
     window.addEventListener("load", init);
 
-    const INTRO_URL = "https://zhiweilla.github.io/intro.php?lang=";
+    const INTRO_URL = "./intro.php?lang=";
 
     function init() {
         id("second").addEventListener("click", loadText);
