@@ -12,7 +12,7 @@
     }
 
     function get_file($lang) {
-        return file_get_contents("./intros/" . $lang . ".txt");
+        return file_get_contents("https://zhiweilla.github.io/intros/" . $lang . ".txt");
     }
 
     /**
