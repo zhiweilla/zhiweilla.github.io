@@ -46,8 +46,10 @@ button:hover {
     cursor: pointer;
 }
 
-.hidden {
-    display: none;
+#content {
+
+    display: flex;
+    justify-content: space-around;
 }
 
 #main {
@@ -69,16 +71,25 @@ button:hover {
     font-size: 100%;
 }
 
-#content {
-    font-size: 17pt;
-    width: 80%;
-    height: 80%;
-    border-left: 5px solid #4d4d4d;
-    border-right: 5px solid #4d4d4d;
+.hidden {
+    display: none;
+}
+
+.modify_text {
     display: flex;
     justify-content: space-around;
 }
 
 article {
+    width: 80%;
+    font-size: 17pt;
+    height: 80%;
+    border-left: 5px solid #4d4d4d;
+    border-right: 5px solid #4d4d4d;
+}
+
+article p {
     width: 95%;
 }
+
+

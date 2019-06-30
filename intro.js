@@ -1,8 +1,6 @@
 (function () {
     window.addEventListener("load", init);
 
-    const INTRO_URL = "intros/";
-
     function init() {
         id("second").addEventListener("click", loadText);
     }
@@ -12,17 +10,10 @@
         let l = id("lang");
         let lang = l.options[l.selectedIndex].value;
         id("warning").classList.add("hidden");
-        let board = id("main");
-        let textArea = document.createElement("div");
-        textArea.id = "content";
-        let text = document.createElement("article");
-        let reader = new FileReader();
-        reader.onload = function(e) {
-            text.innerText = reader.result;
+        if(lang !== "s") {
+            id(lang).classList.remove("hidden");
+            id(lang).classList.add("modify_text");
         }
-        reader.readAsText(INTRO_URL + lang + ".txt");
-        textArea.appendChild(text);
-        board.appendChild(textArea);
     }
 
 
