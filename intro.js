@@ -18,20 +18,6 @@
 
 
     /**
-     *  checks if the response is OK
-     *  @param {Object} response a Promise object representing the response
-     *  @returns {Object} a json file if the response is "OK", a Promise object
-     *  representing "rejection" if the response has error
-     */
-    function checkStatus(response) {
-        if (response.status >= 200 && response.status < 300 || response.status === 0) {
-            return response.text();
-        } else {
-            return Promise.reject(new Error(response.status + ": " + response.statusText));
-        }
-    }
-
-    /**
     * @param {string} target the tag/class/id of the target
     * @returns {Element} the selected element
     */
